@@ -1,0 +1,69 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.container .card-container {
+  position: relative;
+  height: 100vh;
+  background-image: url(../images/bg-main-desktop.png);
+}
+.container .card-container .card-front-container {
+  position: absolute;
+  width: 320px;
+  top: 180px;
+  left: 280px;
+}
+.container .card-container .card-front-container .card-front {
+  width: 320px;
+}
+.container .card-container .card-front-container .card-logo {
+  width: 60px;
+  left: 25px;
+}
+.container .card-container .card-front-container .printed-numbers {
+  top: 100px;
+  left: 25px;
+  font-size: 2rem;
+}
+.container .card-container .card-front-container .printed-name {
+  top: 140px;
+  left: 25px;
+}
+.container .card-container .card-front-container .printed-date {
+  top: 140px;
+  right: 25px;
+}
+.container .card-container .card-back-container {
+  position: absolute;
+  width: 320px;
+  top: 380px;
+  left: 350px;
+}
+.container .card-container .card-back-container .card-back {
+  width: 320px;
+}
+.container .card-container .card-back-container .printed-cvc {
+  top: 80px;
+  right: 40px;
+}
+.container form {
+  width: 380px;
+  height: 400px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+}
+.container form .small-inputs {
+  justify-content: space-between;
+}
+.container form .submit-button {
+  margin-top: -50px;
+}/*# sourceMappingURL=desktop.css.map */

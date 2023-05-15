@@ -1,0 +1,82 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  .card-container {
+    position: relative;
+    height: 100vh;
+    background-image: url(../images/bg-main-desktop.png);
+
+    .card-front-container {
+      position: absolute;
+      width: 320px;
+      top: 180px;
+      left: 280px;
+
+      .card-front {
+        width: 320px;
+      }
+
+      .card-logo {
+        width: 60px;
+        left: 25px;
+      }
+
+      .printed-numbers {
+        top: 100px;
+        left: 25px;
+        font-size: 2rem;
+      }
+
+      .printed-name {
+        top: 140px;
+        left: 25px;
+      }
+
+      .printed-date {
+        top: 140px;
+        right: 25px;
+      }
+    }
+
+    .card-back-container {
+      position: absolute;
+      width: 320px;
+      top: 380px;
+      left: 350px;
+
+      .card-back {
+        width: 320px;       
+      }
+
+      .printed-cvc {
+        top: 80px;
+        right: 40px;
+      }
+    }
+  }
+
+  form {
+    width: 380px;
+    height: 400px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+
+    .small-inputs {
+      justify-content: space-between;
+    }
+
+    .submit-button {
+      margin-top: -50px;
+    }
+  }
+}
