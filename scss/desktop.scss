@@ -23,6 +23,7 @@ body {
 
       .card-front {
         width: 320px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 0 rgba(0, 0, 0, 0);
       }
 
       .card-logo {
@@ -52,9 +53,11 @@ body {
       width: 320px;
       top: 380px;
       left: 350px;
+      
 
       .card-back {
-        width: 320px;       
+        width: 320px;    
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 0 rgba(0, 0, 0, 0);   
       }
 
       .printed-cvc {
@@ -67,9 +70,7 @@ body {
   form {
     width: 380px;
     height: 400px;
-    display: grid;
-    justify-self: center;
-    align-self: center;
+    margin: 180px auto;
 
     .small-inputs {
       justify-content: space-between;
@@ -78,5 +79,10 @@ body {
     .submit-button {
       margin-top: -50px;
     }
+  }
+
+  .complete {
+    width: 400px;
+    margin: 200px auto;
   }
 }

@@ -47,6 +47,7 @@ body {
 
       .card-front {
         width: 270px;
+        border-radius: 8px;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 0 0 rgba(0, 0, 0, 0);
       } 
 
@@ -86,6 +87,7 @@ body {
 
       .card-back {
         width: 270px;
+        border-radius: 8px;
       }
 
       .printed-cvc {
@@ -219,8 +221,6 @@ body {
     }
   }
 }
-
-
 
 .empty-error, .wrong-name, .wrong-number, .wrong-format {
   margin-top: 5px;

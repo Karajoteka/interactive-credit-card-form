@@ -23,6 +23,7 @@ body {
 }
 .container .card-container .card-front-container .card-front {
   width: 320px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 0 rgba(0, 0, 0, 0);
 }
 .container .card-container .card-front-container .card-logo {
   width: 60px;
@@ -49,6 +50,7 @@ body {
 }
 .container .card-container .card-back-container .card-back {
   width: 320px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 0 rgba(0, 0, 0, 0);
 }
 .container .card-container .card-back-container .printed-cvc {
   top: 80px;
@@ -57,13 +59,15 @@ body {
 .container form {
   width: 380px;
   height: 400px;
-  display: grid;
-  justify-self: center;
-  align-self: center;
+  margin: 180px auto;
 }
 .container form .small-inputs {
   justify-content: space-between;
 }
 .container form .submit-button {
   margin-top: -50px;
+}
+.container .complete {
+  width: 400px;
+  margin: 200px auto;
 }/*# sourceMappingURL=desktop.css.map */
