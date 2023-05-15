@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./desktop.css" media="(min-width: 930px)">
   <title>Interactive Credit Card</title>
 </head>
 <body>
@@ -50,12 +51,12 @@
           <label for="">EXP. DATE (MM/YY)</label>
           <div class="date-inputs">
             <div class="month-input-container">
-              <input type="text" placeholder="MM">
+              <input type="text" maxlength="2" placeholder="MM">
               <p class="empty-error inactive">Can´t be blank</p>
               <p class="wrong-format inactive"> Wrong format</p>
             </div>
             <div class="year-input-container">
-              <input type="text" placeholder="YY">
+              <input type="text" maxlength="2" placeholder="YY">
               <p class="empty-error inactive">Can´t be blank</p>
               <p class="wrong-format inactive"> Wrong format</p>
             </div>            
@@ -64,21 +65,19 @@
 
         <div class="cvc-input">
           <label for="">CVC</label>
-          <input type="text" placeholder="e.g.123">
+          <input type="text" maxlength="3" placeholder="e.g.123">
           <p class="empty-error inactive">Can´t be blank</p>
           <p class="wrong-format inactive"> Wrong format</p>
         </div>
-
       </div>
-
-      <button>Confirm</button>    
+      <button class="submit-button">Confirm</button>    
     </form>
 
     <div class="complete inactive">
       <img src="./images/icon-complete.svg" alt="Check">
       <h2>THANK YOU!</h2>
       <p>We've added your card details</p>
-      <button>Continue</button>
+      <button class="restart-button">Continue</button>
     </div>
 
   </main>

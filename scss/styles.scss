@@ -24,7 +24,10 @@ body {
 }
 
 .container {
+  position: relative;
   width: 375px;
+  display: flex;
+  flex-direction: column;
 
   .card-container {
     position: relative;
@@ -44,6 +47,7 @@ body {
 
       .card-front {
         width: 270px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 0 0 rgba(0, 0, 0, 0);
       } 
 
       .card-logo {
@@ -114,6 +118,7 @@ body {
         border: 1px solid $dark-grayish-violet;
         border-radius: 5px;
         font-size: 1.6rem;
+        font-family: $font-stack;
 
         &:hover {
           cursor: pointer;
@@ -155,11 +160,9 @@ body {
           width: 163px;
         }        
       }
-
-
     }
 
-    button {
+    .submit-button {
       width: 100%;
       height: 50px;
       margin-bottom: 20px;
@@ -172,6 +175,46 @@ body {
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+
+  .complete {
+    width: 100%;
+    margin-top: 70px;
+    padding: 20px;
+
+    img {
+      width: 80px;
+      margin: 0 auto;
+      display: flex;
+      justify-self: center;
+    }
+    
+    h2 {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: $dark-grayish-violet;
+      font-size: 2rem;
+    }
+
+    .restart-button {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 20px;
+      background-color: $very-dark-violet;
+      color: $white;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 10px;
     }
   }
 }
