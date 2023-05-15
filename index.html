@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Interactive Credit Card</title>
+</head>
+<body>
+
+  <main class="container">
+
+    <div class="card-container">
+      <div class="card-front-container">
+        <img class="card-front" src="./images/bg-card-front.png" alt="Card front">
+        <img class="card-logo" src="./images/card-logo.svg" alt="Card logo">
+        <p class="printed-numbers">0000 0000 0000 0000</p>
+        <p class="printed-name">JANE APPLESEED</p>
+        <p class="printed-date">00/00</p>
+      </div>
+      <div class="card-back-container">
+        <img class="card-back" src="./images/bg-card-back.png" alt="Card back">
+        <p class="printed-cvc">000</p>
+      </div>      
+    </div>
+
+    <form action="submit">
+
+      <div class="name">
+        <label for="">CARDHOLDER NAME</label>
+        <input type="text" placeholder="e.g. Jane Appleseed">
+        <p class="empty-error inactive">Can´t be blank</p>
+        <p class="wrong-name inactive">Wrong format, letters only</p>
+      </div>
+      
+      <div class="number">
+        <label for="">CARD NUMBER</label>
+        <input type="text" placeholder="e.g. 1234 5678 9123 0000">
+        <p class="empty-error inactive">Can´t be blank</p>
+        <p class="wrong-number inactive">Wrong format, numbers only</p>
+      </div>
+      
+      <div class="small-inputs">
+        <div class="date">
+          <label for="">EXP. DATE (MM/YY)</label>
+          <div class="date-inputs">
+            <div class="month-input-container">
+              <input type="text" placeholder="MM">
+              <p class="empty-error inactive">Can´t be blank</p>
+              <p class="wrong-format inactive"> Wrong format</p>
+            </div>
+            <div class="year-input-container">
+              <input type="text" placeholder="YY">
+              <p class="empty-error inactive">Can´t be blank</p>
+              <p class="wrong-format inactive"> Wrong format</p>
+            </div>            
+          </div>         
+        </div>
+
+        <div class="cvc-input">
+          <label for="">CVC</label>
+          <input type="text" placeholder="e.g.123">
+          <p class="empty-error inactive">Can´t be blank</p>
+          <p class="wrong-format inactive"> Wrong format</p>
+        </div>
+
+      </div>
+
+      <button>Confirm</button>    
+    </form>
+
+    <div class="complete inactive">
+      <img src="./images/icon-complete.svg" alt="Check">
+      <h2>THANK YOU!</h2>
+      <p>We've added your card details</p>
+      <button>Continue</button>
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  width: 375px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.container {
+  width: 375px;
+}
+.container .card-container {
+  position: relative;
+  height: 240px;
+  background-image: url("../images/bg-main-mobile.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.container .card-container .card-front-container {
+  position: absolute;
+  width: 270px;
+  height: auto;
+  top: 133px;
+  left: 20px;
+  z-index: 2;
+}
+.container .card-container .card-front-container .card-front {
+  width: 270px;
+}
+.container .card-container .card-front-container .card-logo {
+  position: absolute;
+  width: 50px;
+  top: 20px;
+  left: 20px;
+}
+.container .card-container .card-front-container p {
+  position: absolute;
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 2px;
+}
+.container .card-container .card-front-container .printed-numbers {
+  top: 80px;
+  left: 20px;
+  font-size: 1.7rem;
+}
+.container .card-container .card-front-container .printed-name {
+  top: 115px;
+  left: 20px;
+}
+.container .card-container .card-front-container .printed-date {
+  top: 115px;
+  right: 20px;
+}
+.container .card-container .card-back-container {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 270px;
+  z-index: 1;
+}
+.container .card-container .card-back-container .card-back {
+  width: 270px;
+}
+.container .card-container .card-back-container .printed-cvc {
+  position: absolute;
+  top: 66px;
+  right: 33px;
+  color: hsl(0, 0%, 100%);
+}
+.container form {
+  margin-top: 60px;
+  padding: 25px;
+  color: hsl(278, 68%, 11%);
+}
+.container form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.container form div label {
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+.container form div input {
+  height: 40px;
+  padding: 10px;
+  border: 1px solid hsl(279, 6%, 55%);
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+.container form div input:hover {
+  cursor: pointer;
+}
+.container form div input:focus {
+  outline: none;
+  border: 1px solid transparent;
+  -o-border-image: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+     border-image: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  border-image-slice: 1;
+}
+.container form div input::-moz-placeholder {
+  color: hsl(279, 6%, 55%);
+}
+.container form div input::placeholder {
+  color: hsl(279, 6%, 55%);
+}
+.container form .small-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.container form .small-inputs .date .date-inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.container form .small-inputs .date .date-inputs input {
+  width: 70px;
+}
+.container form .small-inputs .cvc-input input {
+  width: 163px;
+}
+.container form button {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+}
+.container form button:hover {
+  cursor: pointer;
+}
+
+.empty-error, .wrong-name, .wrong-number, .wrong-format {
+  margin-top: 5px;
+  color: hsl(0, 100%, 66%);
+}
+
+.inactive {
+  display: none;
+}/*# sourceMappingURL=styles.css.map */
