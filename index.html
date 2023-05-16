@@ -34,16 +34,16 @@
 
       <div class="name">
         <label for="">CARDHOLDER NAME</label>
-        <input type="text" placeholder="e.g. Jane Appleseed">
-        <p class="empty-error inactive">Can´t be blank</p>
-        <p class="wrong-name inactive">Wrong format, letters only</p>
+        <input type="text" placeholder="e.g. Jane Appleseed" id="user-name">
+        <p class="empty-error inactive"></p>
+        <p class="wrong-name inactive"></p>
       </div>
       
       <div class="number">
         <label for="">CARD NUMBER</label>
-        <input type="text" placeholder="e.g. 1234 5678 9123 0000">
-        <p class="empty-error inactive">Can´t be blank</p>
-        <p class="wrong-number inactive">Wrong format, numbers only</p>
+        <input type="text" maxlength="19" placeholder="e.g. 1234 5678 9123 0000" id="card-number">
+        <p class="empty-error inactive"></p>
+        <p class="wrong-number inactive"></p>
       </div>
       
       <div class="small-inputs">
@@ -51,23 +51,23 @@
           <label for="">EXP. DATE (MM/YY)</label>
           <div class="date-inputs">
             <div class="month-input-container">
-              <input type="text" maxlength="2" placeholder="MM">
-              <p class="empty-error inactive">Can´t be blank</p>
-              <p class="wrong-format inactive"> Wrong format</p>
+              <input type="text" maxlength="2" placeholder="MM" id="month">
+              <p class="empty-error inactive"></p>
+              <p class="wrong-format inactive"></p>
             </div>
             <div class="year-input-container">
-              <input type="text" maxlength="2" placeholder="YY">
-              <p class="empty-error inactive">Can´t be blank</p>
-              <p class="wrong-format inactive"> Wrong format</p>
+              <input type="text" maxlength="2" placeholder="YY" id="year">
+              <p class="empty-error inactive"></p>
+              <p class="wrong-format inactive"></p>
             </div>            
           </div>         
         </div>
 
         <div class="cvc-input">
           <label for="">CVC</label>
-          <input type="text" maxlength="3" placeholder="e.g.123">
-          <p class="empty-error inactive">Can´t be blank</p>
-          <p class="wrong-format inactive"> Wrong format</p>
+          <input type="text" maxlength="3" placeholder="e.g.123" id="cvc">
+          <p class="empty-error inactive"></p>
+          <p class="wrong-format inactive"></p>
         </div>
       </div>
       <button class="submit-button">Confirm</button>    
