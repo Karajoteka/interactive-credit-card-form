@@ -8,7 +8,7 @@ body {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 500px 2fr;
 
   .card-container {
     position: relative;
@@ -44,7 +44,7 @@ body {
 
       .printed-date {
         top: 140px;
-        right: 25px;
+        right: 30px;
       }
     }
 
