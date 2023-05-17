@@ -49,6 +49,8 @@ function formatCardNumber(value) {
 function submitForm(event) {
   event.preventDefault();
 
+  hideError();
+
   userNameInput.addEventListener('blur', validateUserName);
   cardNumberInput.addEventListener('blur', validateCardNumber);
   monthInput.addEventListener('blur', validateMonth);
@@ -130,8 +132,18 @@ function submitForm(event) {
   function showError(messageElement, message) {
     messageElement.textContent = message;
     messageElement.classList.remove('inactive');
-    if (messageElement.inputElement) {
-      messageElement.inputElement.style.borderColor = 'hsl(0, 100%, 66%)';
+    messageElement.style.borderColor = 'hsl(0, 100%, 66%)';
+
+    if (messageElement === emptyMessage[0] || messageElement === wrongName) {
+      userNameInput.style.borderColor = 'hsl(0, 100%, 66%)';
+    } else if (messageElement === emptyMessage[1] || messageElement === wrongNumber) {
+      cardNumberInput.style.borderColor = 'hsl(0, 100%, 66%)';
+    } else if (messageElement === emptyMessage[2] || messageElement === wrongFormat[0]) {
+      monthInput.style.borderColor = 'hsl(0, 100%, 66%)';
+    } else if (messageElement === emptyMessage[3] || messageElement === wrongFormat[1]) {
+      yearInput.style.borderColor = 'hsl(0, 100%, 66%)';
+    } else if (messageElement === emptyMessage[4] || messageElement === wrongFormat[2]) {
+      cvcInput.style.borderColor = 'hsl(0, 100%, 66%)';
     }
   }
 
@@ -139,10 +151,8 @@ function submitForm(event) {
     emptyMessage.forEach(message => {
       message.textContent = '';
       message.classList.add('inactive');
-      if (message.inputElement) {
-        message.inputElement.style.borderColor = '';
-      }
     });
+
     wrongFormat.forEach(message => {
       message.textContent = '';
       message.classList.add('inactive');
@@ -151,6 +161,12 @@ function submitForm(event) {
     wrongName.classList.add('inactive');
     wrongNumber.textContent = '';
     wrongNumber.classList.add('inactive');
+
+    userNameInput.style.borderColor = '';
+    cardNumberInput.style.borderColor = '';
+    monthInput.style.borderColor = '';
+    yearInput.style.borderColor = '';
+    cvcInput.style.borderColor = '';
   }
 
   const isValid =
