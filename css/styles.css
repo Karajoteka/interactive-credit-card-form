@@ -186,6 +186,9 @@ body {
   border: none;
   border-radius: 10px;
 }
+.container .complete .restart-button:hover {
+  cursor: pointer;
+}
 
 .empty-error, .wrong-name, .wrong-number, .wrong-format {
   margin-top: 5px;

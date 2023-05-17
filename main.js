@@ -18,6 +18,8 @@ const submitButton = document.querySelector('.submit-button');
 submitButton.addEventListener('click', submitForm);
 
 const completedForm = document.querySelector('.complete');
+const restart = document.querySelector('.restart-button');
+restart.addEventListener('click', restartForm);
 
 monthInput.addEventListener('input', function() {
   const enteredMonth = monthInput.value;
@@ -47,13 +49,83 @@ function formatCardNumber(value) {
 function submitForm(event) {
   event.preventDefault();
 
-  const userName = userNameInput.value;
-  const cardNumber = cardNumberInput.value;
-  let month = monthInput.value;
-  const year = yearInput.value;
-  const cvc = cvcInput.value;
+  userNameInput.addEventListener('blur', validateUserName);
+  cardNumberInput.addEventListener('blur', validateCardNumber);
+  monthInput.addEventListener('blur', validateMonth);
+  yearInput.addEventListener('blur', validateYear);
+  cvcInput.addEventListener('blur', validateCvc);
 
-  const currentYear = new Date().getFullYear() % 100;
+  validateUserName();
+  validateCardNumber();
+  validateMonth();
+  validateYear();
+  validateCvc();
+
+  function validateUserName() {
+    const userName = userNameInput.value;
+
+    if (userName === '') {
+      showError(emptyMessage[0], 'Can´t be blank');
+    } else if (!/^[A-Za-z\s]+$/.test(userName)) {
+      showError(wrongName, 'Wrong format, letters only');
+    } else {
+      hideError(emptyMessage[0]);
+      hideError(wrongName);
+    }
+  }
+
+  function validateCardNumber() {
+    const cardNumber = cardNumberInput.value;
+
+    if (cardNumber === '') {
+      showError(emptyMessage[1], 'Can´t be blank');
+    } else if (!/^\d{4}(\s\d{4}){3}$/.test(cardNumber)) {
+      showError(wrongNumber, 'Wrong format, numbers only');
+    } else {
+      hideError(emptyMessage[1]);
+      hideError(wrongNumber);
+    }
+  }
+
+  function validateMonth() {
+    const month = monthInput.value;
+
+    if (month === '') {
+      showError(emptyMessage[2], 'Can´t be blank');
+    } else if (!/^(0?[1-9]|1[0-2])$/.test(month)) {
+      showError(wrongFormat[0], 'Wrong format');
+    } else {
+      hideError(emptyMessage[2]);
+      hideError(wrongFormat[0]);
+    }
+  }
+
+  function validateYear() {
+    const year = yearInput.value;
+    const currentYear = new Date().getFullYear() % 100;
+
+    if (year === '') {
+      showError(emptyMessage[3], 'Can´t be blank');
+    } else if (parseInt(year) < currentYear) {
+      showError(wrongFormat[1], 'Wrong format');
+    } else {
+      hideError(emptyMessage[3]);
+      hideError(wrongFormat[1]);
+    }
+  }
+
+  function validateCvc() {
+    const cvc = cvcInput.value;
+
+    if (cvc === '') {
+      showError(emptyMessage[4], "Can't be blank");
+    } else if (!/^\d{3}$/.test(cvc)) {
+      showError(wrongFormat[2], 'Wrong format');
+    } else {
+      hideError(emptyMessage[4]);
+      hideError(wrongFormat[2]);
+    }
+  }
 
   function showError(messageElement, message) {
     messageElement.textContent = message;
@@ -63,7 +135,7 @@ function submitForm(event) {
     }
   }
 
-  function hideErrors() {
+  function hideError() {
     emptyMessage.forEach(message => {
       message.textContent = '';
       message.classList.add('inactive');
@@ -81,60 +153,40 @@ function submitForm(event) {
     wrongNumber.classList.add('inactive');
   }
 
-  hideErrors();
+  const isValid =
+    userNameInput.value !== '' &&
+    /^[A-Za-z\s]+$/.test(userNameInput.value) &&
+    cardNumberInput.value !== '' &&
+    /^\d{4}(\s\d{4}){3}$/.test(cardNumberInput.value) &&
+    monthInput.value !== '' &&
+    /^(0?[1-9]|1[0-2])$/.test(monthInput.value) &&
+    yearInput.value !== '' &&
+    parseInt(yearInput.value) >= new Date().getFullYear() % 100 &&
+    cvcInput.value !== '' &&
+    !document.querySelector('.error:not(.inactive)');
 
-  // Validación para userName
-  if (userName === '') {
-    showError(emptyMessage[0], 'Can´t be blank');
-  } else if (!/^[A-Za-z\s]+$/.test(userName)) {
-    showError(wrongName, 'Wrong format, letters only');
-  }
-
-  // Validación para cardNumber
-  if (cardNumber === '') {
-    showError(emptyMessage[1], 'Can´t be blank');
-  } else if (!/^\d{4}(\s\d{4}){3}$/.test(cardNumber)) {
-    showError(wrongNumber, 'Wrong format, numbers only');
-  }
-
-  // Validación para month
-  if (month === '') {
-    showError(emptyMessage[2], 'Can´t be blank');
-  } else if (!/^(0?[1-9]|1[0-2])$/.test(month)) {
-    showError(wrongFormat[0], 'Wrong format');
-  }
-
-  // Validación para year
-  if (year === '') {
-    showError(emptyMessage[3], 'Can´t be blank');
-  } else if (parseInt(year) < currentYear) {
-    showError(wrongFormat[1], 'Wrong format');
-  }
-
-  // Validación para cvc
-  if (cvc === '') {
-    showError(emptyMessage[4], "Can't be blank");
-  } else if (!/^\d{3}$/.test(cvc)) {
-    showError(wrongFormat[2], 'Wrong format');
+  if (isValid) {
+    completedForm.classList.remove('inactive');
+    document.querySelector('.form-container').classList.add('inactive');
   }
 }
 
-    // Ocultar todos los mensajes de error si no hay problemas
-    // if (
-    //   userName !== '' &&
-    //   /^[A-Za-z]+$/.test(userName) &&
-    //   cardNumber !== '' &&
-    //   /^\d{4}(\s\d{4}){3}$/.test(cardNumber) &&
-    //   month !== '' &&
-    //   /^(0?[1-9]|1[0-2])$/.test(month) &&
-    //   year !== '' &&
-    //   parseInt(year) >= currentYear &&
-    //   cvc !== ''
-    // ) {
-    //   hideErrors();
-    // } 
-  
-    
+submitButton.addEventListener('click', function(event) {
+  submitForm(event);
+});
+
+function restartForm() {
+  completedForm.classList.add('inactive');
+  document.querySelector('.form-container').classList.remove('inactive');
+
+  hideError();
+  location.reload();  
+}
+
+restart.addEventListener('click', function() {
+  location.reload();
+});
+
 function printCard() {
 
   userNameInput.addEventListener('blur', function() {
@@ -168,4 +220,6 @@ function printCard() {
 }
 
 printCard();
+
+
 
